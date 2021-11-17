@@ -5,5 +5,18 @@
   "start_url": "https://marcelo-ribeiro.github.io/snap-modal",
   "display": "standalone",
   "background_color": "#ECE5DD",
-  "theme_color": "#075E54"
+  "theme_color": "#075E54",
+  "icons": [
+    {
+      "src": "assets/icon/favicon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/icon/icon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
 }
