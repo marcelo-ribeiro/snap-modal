@@ -1,3 +1,11 @@
+// Install SW
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/sw.js").then(() => {
+    console.log("Service Worker Registered");
+  });
+}
+
+// Init Scripts
 const page = document.querySelector(".page");
 const { scroll } = page.children;
 const { toolbar, content } = scroll.children;
