@@ -3,7 +3,7 @@
   "short_name": "snap-modal",
   "description": "Experimental Snap Modal.",
   "start_url": "/snap-modal",
-  "scope": "/snap-modal",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#ffd700",
