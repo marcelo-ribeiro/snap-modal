@@ -3,7 +3,12 @@ self.addEventListener("install", (e) => {
     caches
       .open("snap-modal")
       .then((cache) =>
-        cache.addAll(["/", "/index.html", "/index.js", "/index.css"])
+        cache.addAll([
+          "/snap-modal",
+          "/snap-modal/index.html",
+          "/snap-modal/index.js",
+          "/snap-modal/index.css",
+        ])
       )
   );
 });
