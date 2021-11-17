@@ -1,5 +1,5 @@
 {
-  "name": "snap-modal",
+  "name": "SnapModal",
   "short_name": "snap-modal",
   "description": "Experimental Snap Modal.",
   "start_url": "/snap-modal",
