@@ -2,7 +2,7 @@
   "name": "snap-modal",
   "short_name": "snap-modal",
   "description": "Experimental Snap Modal.",
-  "start_url": "https://marcelo-ribeiro.github.io/snap-modal",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#ffd700",
