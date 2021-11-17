@@ -164,4 +164,5 @@ a {
 
 .modal--draggable:not(:target) {
   transform: none;
+  pointer-events: auto;
 }
