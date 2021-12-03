@@ -149,9 +149,10 @@ a {
 
 .content {
   scroll-snap-align: start;
+  padding-bottom: 1.5rem;
 }
 .container {
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 1.5rem;
 }
 
 /* MODAL */
