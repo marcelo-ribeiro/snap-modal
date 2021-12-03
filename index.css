@@ -16,48 +16,77 @@ html {
   scroll-behavior: smooth;
   touch-action: manipulation;
   user-select: none;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   overscroll-behavior: none;
+  /* overflow: hidden; */
 }
 
 body {
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
+header,
 h1,
 h2,
-h3 {
+h3,
+ul {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+header:first-child,
 h1:first-child,
 h2:first-child,
-h3:first-child {
+h3:first-child,
+ul:first-child {
   margin-top: 0;
+}
+header:last-child,
+h1:last-child,
+h2:last-child,
+h3:last-child,
+ul:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 a {
   color: #ffd700;
 }
 
+main {
+  /* position: relative; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* min-height: 100vh; */
+  /* overflow: auto; */
+  /* scroll-snap-type: y mandatory; */
+}
+
 /* PAGE */
 .page {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   z-index: 0;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   background: #000;
   scroll-snap-align: start;
 }
 .page--fixed {
   position: fixed;
-  inset: 0;
-  z-index: 0;
+  /* inset: 0; */
+  /* z-index: 0; */
 }
 .page .content {
   padding-bottom: 3rem;
@@ -66,7 +95,7 @@ a {
 .scroll {
   overflow: auto;
   scroll-snap-type: y proximity;
-  overscroll-behavior: contain;
+  /* overscroll-behavior: contain; */
 }
 
 /* TOOLBAR */
@@ -111,34 +140,20 @@ a {
 
 /* MODAL */
 .modal {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: absolute;
+  top: calc(100vh + 1px);
   z-index: 10;
-  display: flex;
-  width: 100%;
   height: calc(100vh - 1rem);
-  overflow: hidden;
   background: #333;
   border-radius: 1rem 1rem 0 0;
   transition: 0.5s ease-in-out;
   will-change: transform;
 }
 .modal:not(:target) {
-  transform: translatey(100vh);
   pointer-events: none;
+  opacity: 0;
 }
-.modal .toolbar {
-  background: #333;
-}
-
-.modal--draggable {
-  position: absolute;
-  top: calc(100vh - var(--modal-draggable-drag-height));
-  z-index: 10;
-  width: 100%;
-}
-.modal--draggable:before {
+.modal:before {
   position: relative;
   z-index: 30;
   content: "";
@@ -148,7 +163,7 @@ a {
   height: var(--modal-draggable-drag-height);
   scroll-snap-align: start;
 }
-.modal--draggable:after {
+.modal:after {
   --width: 2.5rem;
   --height: 0.25rem;
   content: "";
@@ -163,8 +178,22 @@ a {
   border-radius: 1rem;
   margin: 0 auto;
 }
+.modal .toolbar {
+  background: #333;
+}
 
+.modal--draggable {
+  top: calc(100vh - var(--modal-draggable-drag-height));
+}
 .modal--draggable:not(:target) {
-  transform: none;
   pointer-events: auto;
+  opacity: 1;
+}
+
+/* ITEM */
+.item {
+  position: relative;
+  display: flex;
+  padding: 0.75rem 0;
+  list-style: none;
 }

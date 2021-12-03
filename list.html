@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Snap — List</title>
+    <meta name="description" content="Experimental Snap Modal" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#ffd700" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="favicon.png" />
+  </head>
+  <body>
+    <main>
+      <section class="page page--fixed">
+        <div name="scroll" class="scroll">
+          <header class="toolbar toolbar--colapsed" name="toolbar">
+            <h1>Page Title</h1>
+          </header>
+          <div class="content" name="content">
+            <header>
+              <h1>Page Title</h1>
+            </header>
+            <ul>
+              <li><a href="#modal-01" class="item">User 01</a></li>
+              <li><a href="#modal-02" class="item">User 02</a></li>
+              <li><a href="#modal-03" class="item">User 03</a></li>
+              <li><a href="#modal-04" class="item">User 04</a></li>
+              <li><a href="#modal-05" class="item">User 05</a></li>
+              <li><a href="#modal-06" class="item">User 06</a></li>
+              <li><a href="#modal-07" class="item">User 07</a></li>
+              <li><a href="#modal-08" class="item">User 08</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="modal-01" class="page modal">
+        <div name="scroll" class="scroll">
+          <header class="toolbar">
+            <h1>Modal Title</h1>
+          </header>
+          <div class="content">
+            <a href="javascript: history.back();" style="display: block"
+              >Close modal</a
+            >
+            <header>
+              <h1>User 01</h1>
+            </header>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Quibusdam, magni a porro placeat, hic alias obcaecati ad sit
+              officia consequatur nostrum aliquid tenetur labore qui. Beatae
+              consequatur ab maxime quisquam?
+            </p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Quibusdam, magni a porro placeat, hic alias obcaecati ad sit
+              officia consequatur nostrum aliquid tenetur labore qui. Beatae
+              consequatur ab maxime quisquam?
+            </p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Quibusdam, magni a porro placeat, hic alias obcaecati ad sit
+              officia consequatur nostrum aliquid tenetur labore qui. Beatae
+              consequatur ab maxime quisquam?
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

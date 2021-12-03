@@ -1,12 +1,13 @@
 // Install SW
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js").then(() => {
-    console.log("Service Worker Registered");
-  });
+  navigator.serviceWorker
+    .register("sw.js")
+    .then(() => console.log("Service Worker Registered"));
 }
 
 // Init Scripts
 const page = document.querySelector(".page");
+const main = document.querySelector("main");
 const { scroll } = page.children;
 const { toolbar, content } = scroll.children;
 const handleScroll = (event) => {
@@ -16,3 +17,16 @@ const handleScroll = (event) => {
   );
 };
 scroll.addEventListener("scroll", handleScroll, { passive: true });
+
+const modal = document.querySelector("#modal-01");
+const intersectionObserver = new IntersectionObserver(
+  ([entry]) => {
+    console.dir(entry);
+    // modal.classList.toggle("modal--active", entry.isIntersecting);
+    !entry.isIntersecting && !!location.hash && history.back();
+  },
+  {
+    threshold: [0, 1],
+  }
+);
+intersectionObserver.observe(modal);
