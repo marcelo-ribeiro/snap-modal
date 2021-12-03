@@ -141,7 +141,7 @@ a {
 /* CONTENT */
 .page__header {
   margin: 0;
-  padding: 1.25rem 1.5rem;
+  padding: 0 1.5rem 1.25rem;
 }
 .page__header h1 {
   line-height: calc(1em + 0.25rem);
@@ -152,6 +152,9 @@ a {
 }
 .container {
   padding: 0 1.5rem;
+}
+.content > .container {
+  padding: 1.5rem;
 }
 
 /* MODAL */
