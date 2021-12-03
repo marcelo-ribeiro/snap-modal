@@ -32,14 +32,14 @@ scroll.addEventListener("scroll", handleScroll, { passive: true });
 //   }
 // ).observe(content);
 
-const modal = document.querySelector("#modal-01");
-const intersectionObserver = new IntersectionObserver(
-  ([entry]) => {
-    console.dir(entry);
-    !entry.isIntersecting && !!location.hash && history.back();
-  },
-  {
-    threshold: [0, 1],
-  }
-);
-modal && intersectionObserver.observe(modal);
+// const modal = document.querySelector("#modal-01");
+// const intersectionObserver = new IntersectionObserver(
+//   ([entry]) => {
+//     console.dir(entry);
+//     !entry.isIntersecting && !!location.hash && history.back();
+//   },
+//   {
+//     threshold: [0, 1],
+//   }
+// );
+// modal && intersectionObserver.observe(modal);
