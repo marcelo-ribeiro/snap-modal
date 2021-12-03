@@ -1,5 +1,5 @@
 :root {
-  --toolbar-height: 3rem;
+  --toolbar-height: 3.5rem;
   --modal-draggable-drag-height: 2rem;
 }
 
@@ -19,7 +19,7 @@ html {
   height: 100%;
   min-height: 100%;
   overscroll-behavior: none;
-  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 
 body {
@@ -31,7 +31,8 @@ header,
 h1,
 h2,
 h3,
-ul {
+ul,
+p {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -39,15 +40,22 @@ header:first-child,
 h1:first-child,
 h2:first-child,
 h3:first-child,
-ul:first-child {
+ul:first-child,
+p:first-child {
   margin-top: 0;
 }
 header:last-child,
 h1:last-child,
 h2:last-child,
 h3:last-child,
-ul:last-child {
+ul:last-child,
+p:last-child {
   margin-bottom: 0;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 ul {
@@ -58,16 +66,17 @@ ul {
 
 a {
   color: #ffd700;
+  text-decoration: none;
 }
 
-main {
+/* main { */
   /* position: relative; */
   /* display: flex; */
   /* flex-direction: column; */
   /* min-height: 100vh; */
   /* overflow: auto; */
   /* scroll-snap-type: y mandatory; */
-}
+/* } */
 
 /* PAGE */
 .page {
@@ -85,17 +94,14 @@ main {
 }
 .page--fixed {
   position: fixed;
-  /* inset: 0; */
-  /* z-index: 0; */
-}
-.page .content {
-  padding-bottom: 3rem;
 }
 
+/* SCROLL */
 .scroll {
   overflow: auto;
-  scroll-snap-type: y proximity;
-  /* overscroll-behavior: contain; */
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  scroll-padding-top: var(--toolbar-height);
 }
 
 /* TOOLBAR */
@@ -110,32 +116,42 @@ main {
   flex-wrap: wrap;
   width: 100%;
   min-height: var(--toolbar-height);
-  overflow: hidden;
+  margin: 0;
+  padding: 0 1.5rem;
   scroll-snap-align: start;
   background: #000;
-  border-bottom: 1px solid #fff4;
+  border-bottom: 1px solid #fff2;
   transition: 0.2s ease-out;
 }
 .toolbar h1 {
   margin: 0;
   line-height: 1;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
   transition: 0.2s ease-out;
   will-change: opacity, transform;
 }
 .toolbar--colapsed {
-  border-color: transparent;
+  opacity: 0;
 }
 .toolbar--colapsed h1 {
-  opacity: 0;
   transform: translateY(50%);
 }
 
 /* CONTENT */
+.page__header {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+}
+.page__header h1 {
+  line-height: calc(1em + 0.25rem);
+}
+
 .content {
-  top: 0;
   scroll-snap-align: start;
-  padding: 1rem 1.5rem;
+}
+.container {
+  padding: 0 1.5rem;
 }
 
 /* MODAL */
@@ -153,7 +169,7 @@ main {
   pointer-events: none;
   opacity: 0;
 }
-.modal:before {
+.modal::before {
   position: relative;
   z-index: 30;
   content: "";
@@ -163,7 +179,7 @@ main {
   height: var(--modal-draggable-drag-height);
   scroll-snap-align: start;
 }
-.modal:after {
+.modal::after {
   --width: 2.5rem;
   --height: 0.25rem;
   content: "";
@@ -194,6 +210,11 @@ main {
 .item {
   position: relative;
   display: flex;
-  padding: 0.75rem 0;
+  padding: 0.75rem 1.5rem;
   list-style: none;
+  border-top: 1px solid #fff2;
+  border-bottom: 1px solid #fff2;
+}
+.item + .item {
+  border-top: 0;
 }
