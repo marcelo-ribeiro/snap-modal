@@ -159,7 +159,7 @@ a {
 .modal {
   position: absolute;
   top: calc(100vh + 1px);
-  z-index: 10;
+  z-index: 10 !important;
   height: calc(100vh - 1rem);
   background: #333;
   border-radius: 1rem 1rem 0 0;
