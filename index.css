@@ -12,6 +12,7 @@ html {
   color: #fff;
   font: 16px/1.5 sans-serif;
   text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   touch-action: manipulation;
