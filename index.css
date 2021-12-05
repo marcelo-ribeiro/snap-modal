@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  position: absolute;
+  inset: 0;
+}
+
 html {
   background: #000;
   color: #fff;
@@ -17,15 +22,12 @@ html {
   scroll-behavior: smooth;
   touch-action: manipulation;
   user-select: none;
-  height: 100%;
-  min-height: 100%;
   overscroll-behavior: none;
   overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  height: 100%;
 }
 
 header,
@@ -37,7 +39,7 @@ p {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-header:first-child,
+/* header:first-child,
 h1:first-child,
 h2:first-child,
 h3:first-child,
@@ -52,7 +54,7 @@ h3:last-child,
 ul:last-child,
 p:last-child {
   margin-bottom: 0;
-}
+} */
 
 h1 {
   font-size: 1.75rem;
@@ -145,6 +147,7 @@ a {
   padding: 1.25rem 1.5rem;
 }
 .page__header h1 {
+  margin: 0;
   line-height: calc(1em + 0.25rem);
 }
 
@@ -160,7 +163,7 @@ a {
 .modal {
   position: absolute;
   top: calc(100vh + 1px);
-  z-index: 10 !important;
+  z-index: 10;
   height: calc(100vh - 1rem);
   background: #333;
   border-radius: 1rem 1rem 0 0;
@@ -168,9 +171,12 @@ a {
   will-change: transform;
 }
 .modal:not(:target) {
-  pointer-events: none;
-  opacity: 0;
+  z-index: -1;
 }
+/* .modal:not(:target) { */
+  /* pointer-events: none; */
+  /* opacity: 0; */
+/* } */
 .modal::before {
   position: relative;
   z-index: 30;

@@ -6,12 +6,11 @@ if ("serviceWorker" in navigator) {
     .catch((e) => console.log("Service Worker Error", e));
 }
 
-// Init Scripts
-const page = document.querySelector(".page");
-const main = document.querySelector("main");
-const { scroll } = page.children;
+// Toolbar
+// Handle Toolbar on scroll
+const scroll = document.querySelector(".scroll");
 const { toolbar, content } = scroll.children;
-const handleScroll = (event) => {
+const handleScroll = () => {
   toolbar.classList.toggle(
     "toolbar--colapsed",
     content.getBoundingClientRect().top > toolbar.offsetHeight
@@ -19,27 +18,20 @@ const handleScroll = (event) => {
 };
 scroll.addEventListener("scroll", handleScroll, { passive: true });
 
-// new IntersectionObserver(
-//   ([entry]) => {
-//     console.log({ content: entry });
-//     content.style.overflow = entry.isIntersecting ? "auto" : "hidden";
-//     content.style.overscrollBehavior = entry.isIntersecting
-//       ? "contain"
-//       : "auto";
-//   },
-//   {
-//     threshold: [1],
-//   }
-// ).observe(content);
-
-// const modal = document.querySelector("#modal-01");
-// const intersectionObserver = new IntersectionObserver(
-//   ([entry]) => {
-//     console.dir(entry);
-//     !entry.isIntersecting && !!location.hash && history.back();
-//   },
-//   {
-//     threshold: [0, 1],
-//   }
-// );
-// modal && intersectionObserver.observe(modal);
+// Modal
+// Get all modals and add event listener to back history
+const intersectionObserver = new IntersectionObserver(
+  ([entry]) => {
+    console.log(entry);
+    if (!entry.isIntersecting && !!location.hash) {
+      console.log("if");
+      history.back();
+    }
+  },
+  {
+    threshold: [1],
+  }
+);
+document
+  .querySelectorAll(".modal")
+  .forEach((modal) => intersectionObserver.observe(modal));
