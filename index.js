@@ -1,37 +1,51 @@
 // Install SW
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("sw.js")
-    .then(() => console.log("Service Worker Registered"))
-    .catch((e) => console.log("Service Worker Error", e));
+  navigator.serviceWorker.register("sw.js");
 }
 
 // Toolbar
 // Handle Toolbar on scroll
-const scroll = document.querySelector(".scroll");
-const { toolbar, content } = scroll.children;
-const handleScroll = () => {
-  toolbar.classList.toggle(
+const snapScroll = document.querySelector(".scroll");
+const { toolbar: snapToolbar, content: snapContent } = snapScroll.children;
+const handleScroll = () =>
+  snapToolbar.classList.toggle(
     "toolbar--colapsed",
-    content.getBoundingClientRect().top > toolbar.offsetHeight
+    snapContent.getBoundingClientRect().top > snapToolbar.offsetHeight
   );
-};
-scroll.addEventListener("scroll", handleScroll, { passive: true });
+snapScroll.addEventListener("scroll", handleScroll, { passive: true });
 
 // Modal
+let selectedModal = [];
+const pageScroll = document.documentElement;
+
 // Get all modals and add event listener to back history
-const intersectionObserver = new IntersectionObserver(
-  ([entry]) => {
-    console.log(entry);
-    if (!entry.isIntersecting && !!location.hash) {
-      console.log("if");
-      history.back();
-    }
-  },
-  {
-    threshold: [1],
+const modalIO = new IntersectionObserver(([{ isIntersecting }]) => {
+  console.log({ isIntersecting });
+
+  const modal = selectedModal.at(-1);
+
+  if (isIntersecting) {
+  } else {
+    modal?.classList.remove("active");
+    selectedModal.pop();
   }
-);
-document
-  .querySelectorAll(".modal")
-  .forEach((modal) => intersectionObserver.observe(modal));
+
+  if (!!location.hash) {
+    history.back();
+  }
+});
+document.querySelectorAll(".modal").forEach((modal) => modalIO.observe(modal));
+
+// Open Modal
+function openModal(event, modalId) {
+  console.log({ event, modalId });
+  const modal = document.querySelector(modalId);
+  if (!modal) return;
+  selectedModal.push(modal);
+  modal?.classList.add("active");
+  modal.scrollIntoView();
+}
+
+function closeModal() {
+  pageScroll.scrollTo(0, 0);
+}

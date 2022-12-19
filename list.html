@@ -23,8 +23,14 @@
             <h1>Page Title</h1>
           </header>
           <div class="content" name="content">
-            <a href="#modal-01" class="item">User 01</a>
-            <a href="#modal-02" class="item">User 02</a>
+            <button onclick="openModal(event, '#modal-01')" class="item">
+              User 01
+            </button>
+            <!-- <a href="#modal-01" class="item">User 01</a> -->
+            <!-- <a href="#modal-02" class="item">User 02</a> -->
+            <button onclick="openModal(event, '#modal-02')" class="item">
+              User 02
+            </button>
             <a href="#modal-03" class="item">User 03</a>
             <a href="#modal-04" class="item">User 04</a>
             <a href="#modal-05" class="item">User 05</a>
@@ -46,11 +52,11 @@
         <div name="scroll" class="scroll">
           <header class="toolbar">
             <h1>User 01</h1>
-            <a href="javascript: history.back();" style="margin-left: auto">
+            <button onclick="closeModal();" style="margin-left: auto">
               &times;
-            </a>
+            </button>
           </header>
-          <div class="content">
+          <div class="content" style="padding-top: 1.5rem">
             <div class="container">
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -67,11 +73,11 @@
         <div name="scroll" class="scroll">
           <header class="toolbar">
             <h1>User 02</h1>
-            <a href="javascript: history.back();" style="margin-left: auto">
+            <button onclick="closeModal();" style="margin-left: auto">
               &times;
-            </a>
+            </button>
           </header>
-          <div class="content">
+          <div class="content" style="padding-top: 1.5rem">
             <div class="container">
               <p>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
